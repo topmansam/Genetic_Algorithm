@@ -31,7 +31,7 @@ public class ga {
     
           System.out.println();
           
-          Elitsm.sortByFitness(pop);
+          Helper.sortByFitness(pop);
           Chromosome bestFittest = pop.chromosomes[0];
           //Print out best chromosome in current generation
           //  System.out.println("Best chromosome fitness in this generation: " +
@@ -65,12 +65,13 @@ public class ga {
             //System.out.println("Crossover rate: " + valueCrossover + " " + "Value rate : " + valueMutation);
             Chromosome[] offspring1 = {new Chromosome(false), new Chromosome(false)};
             Chromosome[] offspring2 = {new Chromosome(false), new Chromosome(false)};
-
+            
+              
 
             // if value is less than our rate, we will perform Crossover
             if(valueCrossover < Parameters.CROSSOVER_RATE){
-          // Apply 2  crossover techniques. Each technique returns 2 children.
-
+          
+              // Apply 2  crossover techniques. Each technique returns 2 children.
          offspring1 = Crossover.Uniform(parent1, parent2);
          offspring2 = Crossover.Uniform(parent1, parent2);
             } else{
@@ -80,6 +81,7 @@ public class ga {
               offspring2[1].genes=parent2.genes;
                 
             }
+
              // if value is less than our rate, we will perform Mutation
             if(valueMutation < Parameters.MUTATION_RATE){
          //Apply mutation
@@ -93,12 +95,7 @@ public class ga {
               offspring2[0].genes=parent1.genes;
               offspring2[1].genes=parent2.genes;
             }
-              // Set the offspring fitness
-              offspring1[0].fitness = Evaluation.fitness(String.valueOf(offspring1[0].genes), text);
-              offspring1[1].fitness = Evaluation.fitness(String.valueOf(offspring1[1].genes), text);
-              offspring2[0].fitness = Evaluation.fitness(String.valueOf(offspring2[0].genes), text);
-              offspring2[1].fitness = Evaluation.fitness(String.valueOf(offspring2[1].genes), text);
-
+            
                // Add offspring to population
          if(!newPop.isFull())  newPop.addToPopulation(offspring1[0]);
          if(!newPop.isFull())  newPop.addToPopulation(offspring1[1]);

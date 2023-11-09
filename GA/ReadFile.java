@@ -9,7 +9,7 @@ public class ReadFile {
       //Read in the file and determine the chrome size
     public static String readFile() throws FileNotFoundException, IOException{
         StringBuilder sb = new StringBuilder();
-        String file = "C:\\Users\\samue\\Desktop\\Genetic_Algorithm\\Genetic_Algorithm\\GA\\Data2.txt";
+        String file = "C:\\Users\\samue\\Desktop\\Genetic_Algorithm\\Genetic_Algorithm\\GA\\Data1.txt";
         try(BufferedReader buffer = new BufferedReader(new FileReader(file))){
             String number = buffer.readLine();
             if(number !=null && !number.isEmpty()){

@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 import java.util.Queue;
-public class Elitsm {
+public class Helper {
      
     public static void sortByFitness(Population pop){
         Queue<Chromosome> pq = new PriorityQueue<>((a,b) -> Double.compare(a.fitness, b.fitness));
